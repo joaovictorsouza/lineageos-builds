@@ -1,5 +1,5 @@
 #!/bin/bash
-set -exo pipefail
+set -evo pipefail
 . build/envsetup.sh
 breakfast ${LINEAGE_DEVICE}
 croot
