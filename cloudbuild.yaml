@@ -13,7 +13,7 @@ steps:
   - CCACHE_COMPRESS=0
   - CLOUDSDK_CONTAINER_CLUSTER=node-example-cluster
   - CCACHE_DIR=/workspace/ccache
-  - ANDROID_JACK_VM_ARGS=-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx3G
+  - ANDROID_JACK_VM_ARGS=-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx7G
   - LINEAGE_DEVICE=${_LINEAGE_DEVICE}
 - name: 'salvian/docker-lineageos:latest'
   entrypoint: /bin/bash
@@ -25,4 +25,6 @@ steps:
   - BINTRAY_USER=${_BINTRAY_USER}
   - BINTRAY_API_KEY=${_BINTRAY_API_KEY}
   - BUILD_VERSION=gcp-${REVISION_ID}
-timeout: 3600s
+options:
+  machineType: N1_HIGHCPU_8
+timeout: 5400s
