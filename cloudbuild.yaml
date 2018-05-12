@@ -1,7 +1,6 @@
 steps:
 - name: 'salvian/docker-lineageos:latest'
   args: ['./init.sh']
-steps:
 - name: 'salvian/docker-lineageos:latest'
   args: ['./build.sh']
   env:
@@ -12,7 +11,6 @@ steps:
   - LINEAGE_BRANCH=${_LINEAGE_BRANCH}
   - LINEAGE_DEVICE=${_LINEAGE_DEVICE}
   - LINEAGE_LOCAL_MANIFEST_XML=${_LINEAGE_LOCAL_MANIFEST_XML}
-steps:
 - name: 'salvian/docker-lineageos:latest'
   args: ['./publish.sh']
   env:
