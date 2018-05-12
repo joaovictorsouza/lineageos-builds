@@ -7,3 +7,6 @@ git config --global color.ui true
 repo init -u git://github.com/LineageOS/android.git -b ${LINEAGE_BRANCH} -q
 wget -P .repo/local_manifests/ ${LINEAGE_LOCAL_MANIFEST_XML}
 repo sync -q --no-clone-bundle --no-tags
+ls -al device/xiaomi/jason/
+ls -al kernel/xiaomi/sdm660/
+ls -al vendor/xiaomi/jason/
