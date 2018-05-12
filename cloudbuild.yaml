@@ -2,6 +2,8 @@ steps:
 - name: 'salvian/docker-lineageos:latest'
   entrypoint: /bin/bash
   args: ['./init.sh']
+  - LINEAGE_BRANCH=${_LINEAGE_BRANCH}
+  - LINEAGE_LOCAL_MANIFEST_XML=${_LINEAGE_LOCAL_MANIFEST_XML}
 - name: 'salvian/docker-lineageos:latest'
   entrypoint: /bin/bash
   args: ['./build.sh']
@@ -9,10 +11,8 @@ steps:
   - CCACHE_COMPRESS=0
   - CLOUDSDK_CONTAINER_CLUSTER=node-example-cluster
   - CCACHE_DIR=/workspace/ccache
-  - ANDROID_JACK_VM_ARGS=-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G\
-  - LINEAGE_BRANCH=${_LINEAGE_BRANCH}
+  - ANDROID_JACK_VM_ARGS=-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G
   - LINEAGE_DEVICE=${_LINEAGE_DEVICE}
-  - LINEAGE_LOCAL_MANIFEST_XML=${_LINEAGE_LOCAL_MANIFEST_XML}
 - name: 'salvian/docker-lineageos:latest'
   entrypoint: /bin/bash
   args: ['./publish.sh']
@@ -22,4 +22,4 @@ steps:
   - BINTRAY_URL=${_BINTRAY_URL}
   - BINTRAY_USER=${_BINTRAY_USER}
   - BINTRAY_API_KEY=${_BINTRAY_API_KEY}
-  - BUILD_VERSION=gcp-${SHORT_SHA}
+  - BUILD_VERSION=gcp-${REVISION_ID}
