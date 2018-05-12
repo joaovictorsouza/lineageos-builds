@@ -2,6 +2,7 @@ steps:
 - name: 'salvian/docker-lineageos:latest'
   entrypoint: /bin/bash
   args: ['./init.sh']
+  env:
   - LINEAGE_BRANCH=${_LINEAGE_BRANCH}
   - LINEAGE_LOCAL_MANIFEST_XML=${_LINEAGE_LOCAL_MANIFEST_XML}
 - name: 'salvian/docker-lineageos:latest'
